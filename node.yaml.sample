@@ -1,1 +1,3 @@
-
+users:
+  - acidlemon
+use_docker: true
