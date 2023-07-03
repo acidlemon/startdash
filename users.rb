@@ -4,7 +4,7 @@ node[:users].each do |username|
     additional_group.push("docker")
   end
   
-  user "create user #{user}" do
+  user "create user #{username}" do
     username username
     shell "/bin/bash"
     create_home true
@@ -35,7 +35,7 @@ node[:users].each do |username|
     group username
   end
   
-  http_reqeust "#{homedir}/.ssh/authorized_keys" do
+  http_request "#{homedir}/.ssh/authorized_keys" do
     url "https://github.com/#{username}.keys"
     path "#{homedir}/.ssh/authorized_keys"
     owner username
